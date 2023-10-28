@@ -1,4 +1,4 @@
-My small weekend exploration creating a sample React Native app for KHOU11 news. 
+My weekend exploration creating a sample React Native app for KHOU11 news.
 
 Features:
 
