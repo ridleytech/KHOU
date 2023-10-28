@@ -14,9 +14,9 @@ import useFetch from './useFetch';
 
 const {height} = Dimensions.get('window');
 
-const local = 'http://localhost:3000/users/getStories';
+// const local = 'http://localhost:3000/users/getNewsFeed';
 const remote =
-  'https://tppdgn71n8.execute-api.us-west-2.amazonaws.com/getStories';
+  'https://tppdgn71n8.execute-api.us-west-2.amazonaws.com/getNewsFeed';
 
 function HomeFeed() {
   const {loading, error, value} = useFetch(remote, {}, []);

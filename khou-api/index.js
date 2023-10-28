@@ -7,8 +7,8 @@ require("dotenv").config();
 const documentClient = new AWS.DynamoDB.DocumentClient({ region: "us-west-2" });
 const storiesTable = process.env.STORIES_TABLE;
 
-app.get("/getStories", (req, res, next) => {
-  getStories(req, res);
+app.get("/getNewsFeed", (req, res, next) => {
+  getNewsFeed(req, res);
 });
 
 app.use((req, res, next) => {
@@ -17,7 +17,9 @@ app.use((req, res, next) => {
   });
 });
 
-const getStories = async (req, res) => {
+const getNewsFeed = async (req, res) => {
+  //pulls article data from DynamoDB table
+
   const params = {
     TableName: storiesTable,
   };
