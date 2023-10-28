@@ -11,7 +11,6 @@ import {
 import Header from './Header';
 import {useDispatch} from 'react-redux';
 import {BannerAd, BannerAdSize} from 'react-native-google-mobile-ads';
-import CacheImage from './CacheImage';
 import Video from 'react-native-video';
 
 const {height} = Dimensions.get('window');
@@ -61,7 +60,7 @@ function StoryView(props: any) {
               }}
               onAdFailedToLoad={error => {
                 //Test Admob account not verified. Ads will error
-                // console.error('Advert failed to load: ', error);
+                console.log('Advert failed to load: ', error);
               }}
             />
             <Text style={styles.contentText}>{story.content}</Text>
@@ -109,10 +108,10 @@ const styles = StyleSheet.create({
   subtitle: {
     lineHeight: 22,
     fontSize: 16,
-    fontWeight: 'semibold',
+    fontWeight: '500',
     marginBottom: 30,
   },
-  contentText: {lineHeight: 22, fontSize: 16, fontWeight: 'semibold'},
+  contentText: {lineHeight: 22, fontSize: 16},
 });
 
 export default StoryView;

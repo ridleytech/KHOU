@@ -1,19 +1,16 @@
-import React, {Component, useEffect, useState} from 'react';
+import React from 'react';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
-import reducers from './reducers/';
-import Navigation from './navigation/Navigation';
+import reducers from '../reducers';
+import Navigation from '../navigation/Navigation';
 
 const composeEnhancers =
   typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
     : compose;
 
-const enhancer = composeEnhancers(
-  applyMiddleware(thunk),
-  // other store enhancers if any
-);
+const enhancer = composeEnhancers(applyMiddleware(thunk));
 const store = createStore(reducers, enhancer);
 
 export default (props: any) => {

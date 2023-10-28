@@ -14,24 +14,21 @@ import useFetch from './useFetch';
 
 const {height} = Dimensions.get('window');
 
-// const local = 'http://localhost:3000/users/getNewsFeed';
+const local = 'http://localhost:3000/users/getNewsFeed';
 const remote =
   'https://tppdgn71n8.execute-api.us-west-2.amazonaws.com/getNewsFeed';
 
 function HomeFeed() {
-  const {loading, error, value} = useFetch(remote, {}, []);
+  const {loading, error, value} = useFetch(local, {}, []);
 
   return (
     <>
-      <ImageBackground
-        style={{height: '100%'}}
-        source={bgImg}
-        resizeMode="cover">
+      <ImageBackground style={styles.feedBG} source={bgImg} resizeMode="cover">
         <Header />
 
         {loading ? (
           <View style={styles.loading}>
-            <Text style={{fontSize: 22, fontWeight: 'bold'}}>Loading...</Text>
+            <Text style={styles.loadingTxt}>Loading...</Text>
           </View>
         ) : value ? (
           <FlatList
@@ -50,7 +47,7 @@ function HomeFeed() {
         ) : error ? (
           <View>
             <View style={styles.loading}>
-              <Text style={{fontSize: 22}}>error</Text>
+              <Text style={styles.errorTxt}>error</Text>
             </View>
           </View>
         ) : null}
@@ -60,6 +57,7 @@ function HomeFeed() {
 }
 
 const styles = StyleSheet.create({
+  feedBG: {height: '100%'},
   feed: {
     padding: 0,
     margin: 0,
@@ -73,6 +71,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  loadingTxt: {fontSize: 22, fontWeight: 'bold'},
+  errorTxt: {fontSize: 22},
 });
 
 export default HomeFeed;

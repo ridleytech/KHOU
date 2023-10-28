@@ -12,7 +12,7 @@ export default CacheImage = props => {
 
   useEffect(() => {
     initImage();
-  }, []);
+  });
 
   const initImage = async () => {
     var path = RNFS.CachesDirectoryPath + '/' + name;
@@ -28,7 +28,7 @@ export default CacheImage = props => {
     });
   };
 
-  const getFile = path => {
+  const getFile = (path: string) => {
     let downloadOptions = {
       fromUrl: uri,
       toFile: path,
