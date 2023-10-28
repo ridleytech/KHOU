@@ -1,0 +1,15 @@
+org: ridley1224
+app: khou-api
+service: khou-api
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-west-2
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      - httpApi: "*"

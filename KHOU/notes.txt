@@ -1,0 +1,13 @@
+app id
+ca-app-pub-5415127128968102/5758553162
+
+ad id
+ca-app-pub-5415127128968102/5758553162
+
+https://medium.com/@msgold/how-to-setup-google-ads-in-react-native-3886353f7e7c
+
+https://medium.com/@ayushi.nig/google-analytics-for-react-native-app-ba03140ed528
+
+    const local = 'http://localhost:3000/users/getStories';
+    const remote =
+      'https://tppdgn71n8.execute-api.us-west-2.amazonaws.com/getStories';

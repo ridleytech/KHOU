@@ -1,0 +1,6 @@
+dashboard: https://app.serverless.com/ridley1224/apps/khou-api/khou-api/dev/us-west-2
+endpoint: ANY - https://tppdgn71n8.execute-api.us-west-2.amazonaws.com
+functions:
+  api: khou-api-dev-api (1.1 MB)
+
+1 deprecation found: run 'serverless doctor' for more details

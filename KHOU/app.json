@@ -1,0 +1,8 @@
+{
+  "name": "KHOU",
+  "displayName": "KHOU",
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-yyyyyyyyyyyyyyyy~xxxxxxxxxx",
+    "ios_app_id": "ca-app-pub-5415127128968102~5480965967"
+  }
+}
