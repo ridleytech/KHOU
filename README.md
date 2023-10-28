@@ -14,6 +14,6 @@ Features:
 - Redux state management
 
 <img src="KHOU/images/1-splash.png" width="300"/>
-<img src="rKHOU/images/2-feed.png" width="300"/>
+<img src="KHOU/images/2-feed.png" width="300"/>
 <img src="KHOU/images/3-story1.png" width="300"/>
 <img src="KHOU/images/4-story2.png" width="300"/>
