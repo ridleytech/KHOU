@@ -19,7 +19,7 @@ const remote =
   'https://tppdgn71n8.execute-api.us-west-2.amazonaws.com/getNewsFeed';
 
 function HomeFeed() {
-  const {loading, error, value} = useFetch(local, {}, []);
+  const {loading, error, value} = useFetch(remote, {}, []);
 
   return (
     <>
