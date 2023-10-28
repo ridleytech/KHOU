@@ -12,6 +12,7 @@ import Header from './Header';
 import {useDispatch} from 'react-redux';
 import {BannerAd, BannerAdSize} from 'react-native-google-mobile-ads';
 import CacheImage from './CacheImage';
+import Video from 'react-native-video';
 
 const {height} = Dimensions.get('window');
 
@@ -42,7 +43,13 @@ function StoryView(props: any) {
       <Header />
       <ScrollView>
         <View key={story.id} style={styles.container}>
-          <CacheImage uri={story.webimage} style={styles.feedImg} />
+          <Video
+            paused={true}
+            controls={true}
+            source={{uri: story.videourl, type: 'm3u8'}}
+            style={styles.feedImg}
+          />
+
           <View style={styles.content}>
             <Text style={styles.title}>{story.title}</Text>
             <Text style={styles.subtitle}>{story.subtitle}</Text>
@@ -53,7 +60,8 @@ function StoryView(props: any) {
                 console.log('Advert loaded');
               }}
               onAdFailedToLoad={error => {
-                console.error('Advert failed to load: ', error);
+                //Test Admob account not verified. Ads will error
+                // console.error('Advert failed to load: ', error);
               }}
             />
             <Text style={styles.contentText}>{story.content}</Text>

@@ -8,7 +8,7 @@ import React, {
 } from 'react-native';
 
 import FeedItem from './FeedItem';
-import stripeBG from '../images/stripe-bg.png';
+import bgImg from '../images/stripe-bg.png';
 import Header from './Header';
 import useFetch from './useFetch';
 
@@ -25,7 +25,7 @@ function HomeFeed() {
     <>
       <ImageBackground
         style={{height: '100%'}}
-        source={stripeBG}
+        source={bgImg}
         resizeMode="cover">
         <Header />
 
@@ -49,7 +49,9 @@ function HomeFeed() {
           />
         ) : error ? (
           <View>
-            <Text style={{fontSize: 22}}>error</Text>
+            <View style={styles.loading}>
+              <Text style={{fontSize: 22}}>error</Text>
+            </View>
           </View>
         ) : null}
       </ImageBackground>
