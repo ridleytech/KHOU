@@ -13,7 +13,7 @@ import {BannerAd, BannerAdSize} from 'react-native-google-mobile-ads';
 
 const {height} = Dimensions.get('window');
 
-function StoryView(props) {
+function StoryView(props: any) {
   const story = props.route.params.story;
   const dispatch = useDispatch();
 
@@ -79,13 +79,6 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   contentText: {lineHeight: 22, fontSize: 16, fontWeight: 'semibold'},
-  hatchPattern: {
-    flex: 1,
-    backgroundColor: 'transparent',
-    backgroundImage:
-      'linear-gradient(45deg, #cccccc 25%, transparent 25%, transparent 75%, #cccccc 75%, #cccccc), linear-gradient(-45deg, #cccccc 25%, transparent 25%, transparent 75%, #cccccc 75%, #cccccc)',
-    backgroundSize: '20px 20px',
-  },
 });
 
 export default StoryView;
