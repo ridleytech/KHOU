@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     height: 90,
-    padding: 10,
+    padding: 0,
+    paddingBottom: 10,
   },
   imgIcon: {
     height: 55,
