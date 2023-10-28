@@ -3,9 +3,10 @@ import {
   View,
   Text,
   Dimensions,
-  Image,
   StyleSheet,
   ScrollView,
+  TouchableOpacity,
+  Linking,
 } from 'react-native';
 import Header from './Header';
 import {useDispatch} from 'react-redux';
@@ -23,6 +24,18 @@ function StoryView(props: any) {
       dispatch({type: 'SET_CURRENT_PAGE', payload: 'story'});
     }, 250);
   });
+
+  const viewFullArticle = () => {
+    let url = story.url;
+
+    Linking.canOpenURL(url).then(supported => {
+      if (supported) {
+        Linking.openURL(url);
+      } else {
+        console.log("Can't open URI: " + url);
+      }
+    });
+  };
 
   return (
     <>
@@ -45,6 +58,10 @@ function StoryView(props: any) {
             />
             <Text style={styles.contentText}>{story.content}</Text>
           </View>
+
+          <TouchableOpacity onPress={() => viewFullArticle()}>
+            <Text style={styles.fullArticleText}>View Full Article</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </>
@@ -66,7 +83,14 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
   },
-  content: {padding: 15},
+  fullArticleText: {
+    fontSize: 15,
+    backgroundColor: '#1360aa',
+    padding: 20,
+    color: 'white',
+    fontWeight: 'bold',
+  },
+  content: {padding: 15, marginBottom: 20},
   title: {
     fontSize: 22,
     fontWeight: 'bold',
