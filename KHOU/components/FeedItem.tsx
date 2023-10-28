@@ -23,7 +23,7 @@ function FeedItem({story, storyIndex}: any) {
       {storyIndex === 0 || storyIndex % 3 !== 0 ? (
         <TouchableOpacity onPress={() => viewStory(story)}>
           <View style={styles.content}>
-            <CacheImage uri={story.image} style={styles.feedImg} />
+            <CacheImage uri={story.webimage} style={styles.feedImg} />
             <View style={styles.padding}>
               <Text style={styles.title}>{story.title}</Text>
             </View>

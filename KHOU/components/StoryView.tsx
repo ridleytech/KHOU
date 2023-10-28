@@ -29,7 +29,7 @@ function StoryView(props: any) {
       <Header />
       <ScrollView>
         <View key={story.id} style={styles.container}>
-          <CacheImage uri={story.image} style={styles.feedImg} />
+          <CacheImage uri={story.webimage} style={styles.feedImg} />
           <View style={styles.content}>
             <Text style={styles.title}>{story.title}</Text>
             <Text style={styles.subtitle}>{story.subtitle}</Text>
