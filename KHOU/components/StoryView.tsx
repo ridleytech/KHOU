@@ -10,6 +10,7 @@ import {
 import Header from './Header';
 import {useDispatch} from 'react-redux';
 import {BannerAd, BannerAdSize} from 'react-native-google-mobile-ads';
+import CacheImage from './CacheImage';
 
 const {height} = Dimensions.get('window');
 
@@ -28,10 +29,7 @@ function StoryView(props: any) {
       <Header />
       <ScrollView>
         <View key={story.id} style={styles.container}>
-          <Image
-            source={{uri: story.image}}
-            style={{width: '100%', height: 150}}
-          />
+          <CacheImage uri={story.image} style={styles.feedImg} />
           <View style={styles.content}>
             <Text style={styles.title}>{story.title}</Text>
             <Text style={styles.subtitle}>{story.subtitle}</Text>
@@ -57,6 +55,10 @@ const styles = StyleSheet.create({
   feed: {
     padding: 0,
     margin: 0,
+  },
+  feedImg: {
+    width: '100%',
+    height: 150,
   },
   container: {
     height: height,

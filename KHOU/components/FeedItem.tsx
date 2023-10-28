@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {BannerAd, BannerAdSize} from 'react-native-google-mobile-ads';
+import CacheImage from './CacheImage';
 // import {HOME_FEED_SCREEN} from './analytics/eventsConstants';
 // import {trackEvent} from './analytics/utils';
 
@@ -22,7 +23,7 @@ function FeedItem({story, storyIndex}: any) {
       {storyIndex === 0 || storyIndex % 3 !== 0 ? (
         <TouchableOpacity onPress={() => viewStory(story)}>
           <View style={styles.content}>
-            <Image source={{uri: story.image}} style={styles.feedImg} />
+            <CacheImage uri={story.image} style={styles.feedImg} />
             <View style={styles.padding}>
               <Text style={styles.title}>{story.title}</Text>
             </View>
