@@ -12,8 +12,11 @@ Features:
 - Initial setup for GA4 analytics integration
 - Custom Tab bar
 - Redux state management
+- Light and dark mode
 
 <img src="KHOU/images/1-splash.png" width="300"/>
 <img src="KHOU/images/2-feed.png" width="300"/>
-<img src="KHOU/images/3-story1.png" width="300"/>
-<img src="KHOU/images/4-story2.png" width="300"/>
+<img src="KHOU/images/3-feed-ad.png" width="300"/>
+<img src="KHOU/images/4-story.png" width="300"/>
+<img src="KHOU/images/5-prefs.png" width="300"/>
+<img src="KHOU/images/6-feed-dark.png" width="300"/>
