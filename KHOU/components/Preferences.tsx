@@ -16,8 +16,8 @@ function Preferences() {
 
   return (
     <ImageBackground
-      style={styles.feedBG}
-      source={theme == 'light' ? bgImg : bgImgDark}
+      style={styles.patternBG}
+      source={theme === 'light' ? bgImg : bgImgDark}
       resizeMode="cover">
       <Header />
       <View
@@ -27,37 +27,23 @@ function Preferences() {
         }}>
         <Text
           style={[
-            styles.title,
+            styles.headerTxt,
             {color: theme === 'light' ? 'black' : 'white'},
           ]}>
           Preferences
         </Text>
 
-        <View
-          style={{
-            marginTop: 0,
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            width: '100%',
-            marginBottom: 100,
-          }}>
+        <View style={styles.settingsContainer}>
           <Text
-            style={{
-              color: theme === 'light' ? '#495057' : 'white',
-              fontSize: 20,
-              lineHeight: 30,
-              flex: 1,
-              fontWeight: '400',
-            }}>
+            style={[
+              styles.settingsLabel,
+              {
+                color: theme === 'light' ? '#495057' : 'white',
+              },
+            ]}>
             Dark mode
           </Text>
-          <View
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
+          <View style={styles.switchContainer}>
             <Switch
               style={{marginRight: 12}}
               trackColor={{
@@ -75,12 +61,10 @@ function Preferences() {
               value={theme === 'light' ? false : true}
             />
             <Text
-              style={{
-                color: theme == 'light' ? 'black' : 'white',
-                fontSize: 16,
-                lineHeight: 22,
-                fontWeight: '400',
-              }}>
+              style={[
+                styles.modeSetting,
+                {color: theme == 'light' ? 'black' : 'white'},
+              ]}>
               {theme === 'dark' ? 'On' : 'Off'}
             </Text>
           </View>
@@ -91,44 +75,37 @@ function Preferences() {
 }
 
 const styles = StyleSheet.create({
-  feedBG: {height: '100%'},
-
-  feed: {
-    padding: 0,
-    margin: 0,
-  },
-  feedImg: {
-    width: '100%',
-    height: 150,
-  },
-  container: {
-    width: '100%',
+  patternBG: {height: '100%'},
+  settingsContainer: {
+    marginTop: 0,
     display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    marginBottom: 100,
+  },
+  settingsLabel: {
+    fontSize: 20,
+    flex: 1,
+    fontWeight: '400',
+  },
+  switchContainer: {
+    display: 'flex',
+    flexDirection: 'row',
     alignItems: 'center',
   },
-  fullArticleText: {
-    fontSize: 15,
-    backgroundColor: '#1360aa',
-    padding: 20,
-    color: 'white',
-    fontWeight: 'bold',
+  modeSetting: {
+    fontSize: 16,
+    lineHeight: 22,
+    fontWeight: '400',
   },
-  content: {padding: 15, marginBottom: 20},
-  title: {
+  headerTxt: {
     fontSize: 22,
     fontWeight: 'bold',
     marginBottom: 20,
     marginTop: 20,
     lineHeight: 30,
   },
-  subtitle: {
-    lineHeight: 22,
-    fontSize: 16,
-    fontWeight: '500',
-    marginBottom: 30,
-  },
-  contentText: {lineHeight: 22, fontSize: 16, marginTop: 30},
-  readTime: {display: 'flex', flexDirection: 'row', marginBottom: 20},
 });
 
 export default Preferences;

@@ -16,7 +16,7 @@ import {useSelector} from 'react-redux';
 
 const {height} = Dimensions.get('window');
 
-const local = 'http://localhost:3000/users/getNewsFeed';
+const local = 'http://localhost:3000/articles/getNewsFeed';
 const remote =
   'https://tppdgn71n8.execute-api.us-west-2.amazonaws.com/getNewsFeed';
 
@@ -27,8 +27,8 @@ function HomeFeed() {
   return (
     <>
       <ImageBackground
-        style={styles.feedBG}
-        source={theme == 'light' ? bgImg : bgImgDark}
+        style={styles.patternBG}
+        source={theme === 'light' ? bgImg : bgImgDark}
         resizeMode="cover">
         <Header />
 
@@ -63,7 +63,7 @@ function HomeFeed() {
 }
 
 const styles = StyleSheet.create({
-  feedBG: {height: '100%'},
+  patternBG: {height: '100%'},
   feed: {
     padding: 0,
     margin: 0,
