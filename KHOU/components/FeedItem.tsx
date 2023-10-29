@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {BannerAd, BannerAdSize} from 'react-native-google-mobile-ads';
 import CacheImage from './CacheImage';
+import BannerView from './BannerAd';
 // import {HOME_FEED_SCREEN} from './analytics/eventsConstants';
 // import {trackEvent} from './analytics/utils';
 
@@ -33,17 +33,7 @@ function FeedItem({story, storyIndex}: any) {
             </View>
           </TouchableOpacity>
         ) : (
-          <BannerAd
-            size={BannerAdSize.BANNER}
-            unitId="ca-app-pub-5415127128968102/5758553162"
-            onAdLoaded={() => {
-              console.log('Advert loaded');
-            }}
-            onAdFailedToLoad={error => {
-              //Test Admob account not verified. Ads will error
-              // console.error('Advert failed to load: ', error);
-            }}
-          />
+          <BannerView />
         )
       }
     </View>
@@ -72,7 +62,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     lineHeight: 30,
   },
-  contentText: {lineHeight: 22, fontSize: 16, fontWeight: 'semibold'},
 });
 
 export default FeedItem;
