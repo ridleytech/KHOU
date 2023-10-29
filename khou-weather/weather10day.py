@@ -22,12 +22,8 @@ def getWeather():
     low_tags = soup.select(
         ".weather-10-day__temperature-low")
     precip_tags = soup.select(".weather-10-day__precipitation-number")
-    # precip_icons_tags = soup.select(".weather-10-day__precipitation-icon")
     wind_number_tags = soup.select(".weather-10-day__wind-number")
     wind_direction_tags = soup.select(".weather-10-day__wind-direction")
-
-    # style = cssutils.parseStyle(div_style)
-    # url = style['background-image']
 
     days = []
     dates = []

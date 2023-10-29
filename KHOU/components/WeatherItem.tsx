@@ -5,7 +5,7 @@ import {useSelector} from 'react-redux';
 // import {HOME_FEED_SCREEN} from './analytics/eventsConstants';
 // import {trackEvent} from './analytics/utils';
 
-function WeatherItem({weatherItem, storyIndex}: any) {
+function WeatherItem({weatherItem}: any) {
   const theme = useSelector((state: RootStateOrAny) => state.prefs.theme);
 
   console.log('weatherItem', weatherItem);
@@ -55,48 +55,68 @@ function WeatherItem({weatherItem, storyIndex}: any) {
             {weatherItem.high}/{weatherItem.low}
           </Text>
 
-          <CacheImage
-            uri={'https://www.khou.com/images/weather-10-day/rain.png'}
-            style={styles.feedImg}
-            width={25}
-            height={25}
-            resize={'contain'}
-          />
-          <Text
+          <View
             style={{
-              marginLeft: 5,
-              marginRight: 20,
-              fontSize: 16,
-              fontWeight: 'bold',
-              color: theme == 'dark' ? 'white' : '#222',
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              // backgroundColor: 'blue',
+              width: 80,
             }}>
-            {weatherItem.precipitations}
-          </Text>
-          <CacheImage
-            uri={'https://www.khou.com/images/weather-10-day/wind.png'}
-            style={styles.feedImg}
-            width={25}
-            height={25}
-            resize={'cover'}
-          />
-          <Text
+            <CacheImage
+              uri={'https://www.khou.com/images/weather-10-day/rain.png'}
+              style={styles.feedImg}
+              width={25}
+              height={25}
+              resize={'contain'}
+            />
+            <Text
+              style={{
+                marginLeft: 5,
+                marginRight: 20,
+                fontSize: 16,
+                fontWeight: 'bold',
+                color: theme == 'dark' ? 'white' : '#222',
+              }}>
+              {weatherItem.precipitations}
+            </Text>
+          </View>
+          <View
             style={{
-              marginLeft: 5,
-              fontSize: 16,
-              fontWeight: 'bold',
-              color: theme == 'dark' ? 'white' : '#222',
+              display: 'flex',
+              flexDirection: 'row',
+              // alignItems: 'center',
+              // justifyContent: 'center',
+              // backgroundColor: 'red',
+              width: 90,
             }}>
-            {weatherItem.windNumber}
-          </Text>
-          <Text
-            style={{
-              marginLeft: 5,
-              fontSize: 16,
-              fontWeight: 'bold',
-              color: theme == 'dark' ? 'white' : '#222',
-            }}>
-            {weatherItem.windDirection}
-          </Text>
+            <CacheImage
+              uri={'https://www.khou.com/images/weather-10-day/wind.png'}
+              style={styles.feedImg}
+              width={25}
+              height={25}
+              resize={'cover'}
+            />
+            <Text
+              style={{
+                marginLeft: 5,
+                fontSize: 16,
+                fontWeight: 'bold',
+                color: theme == 'dark' ? 'white' : '#222',
+              }}>
+              {weatherItem.windNumber}
+            </Text>
+            <Text
+              style={{
+                marginLeft: 5,
+                fontSize: 16,
+                fontWeight: 'bold',
+                color: theme == 'dark' ? 'white' : '#222',
+                textAlign: 'right',
+              }}>
+              {weatherItem.windDirection}
+            </Text>
+          </View>
         </View>
       }
     </View>
