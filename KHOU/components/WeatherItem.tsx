@@ -42,6 +42,7 @@ function WeatherItem({weatherItem, storyIndex}: any) {
             style={styles.feedImg}
             width={30}
             height={30}
+            resize={'contain'}
           />
           <Text
             style={{
@@ -55,10 +56,11 @@ function WeatherItem({weatherItem, storyIndex}: any) {
           </Text>
 
           <CacheImage
-            uri={weatherItem.condition}
+            uri={'https://www.khou.com/images/weather-10-day/rain.png'}
             style={styles.feedImg}
-            width={30}
-            height={30}
+            width={25}
+            height={25}
+            resize={'contain'}
           />
           <Text
             style={{
@@ -71,10 +73,11 @@ function WeatherItem({weatherItem, storyIndex}: any) {
             {weatherItem.precipitations}
           </Text>
           <CacheImage
-            uri={weatherItem.condition}
+            uri={'https://www.khou.com/images/weather-10-day/wind.png'}
             style={styles.feedImg}
-            width={30}
-            height={30}
+            width={25}
+            height={25}
+            resize={'cover'}
           />
           <Text
             style={{

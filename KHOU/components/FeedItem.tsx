@@ -37,6 +37,7 @@ function FeedItem({story, storyIndex}: any) {
                 style={styles.feedImg}
                 width={'100%'}
                 height={150}
+                resize={'cover'}
               />
               <View style={styles.padding}>
                 <Text

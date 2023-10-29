@@ -6,7 +6,7 @@ import MyTabBar from './TabBar';
 import HomeFeed from '../components/HomeFeed';
 import StoryView from '../components/StoryView';
 import Preferences from '../components/Preferences';
-import Weather from '../components/Weather';
+import WeatherFeed from '../components/WeatherFeed';
 
 const AppTab = createBottomTabNavigator();
 const AppTabScreen = () => {
@@ -15,7 +15,7 @@ const AppTabScreen = () => {
       initialRouteName="HomeFeed"
       tabBar={(props: any) => <MyTabBar {...props} />}>
       <AppTab.Screen name="RootStackScreen" component={RootStackScreen} />
-      <AppTab.Screen name="WeatherScreen" component={Weather} />
+      <AppTab.Screen name="WeatherScreen" component={WeatherFeed} />
     </AppTab.Navigator>
   );
 };

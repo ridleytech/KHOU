@@ -51,5 +51,7 @@ export default CacheImage = props => {
     },
   });
 
-  return <Image style={styles.feedImg} source={source} resizeMode="cover" />;
+  return (
+    <Image style={styles.feedImg} source={source} resizeMode={props.resize} />
+  );
 };

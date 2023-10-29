@@ -19,7 +19,7 @@ const {height} = Dimensions.get('window');
 
 const local = 'http://localhost:9999';
 
-function Weather() {
+function WeatherFeed() {
   const {loading, error, value} = useFetch(local, {}, []);
   const theme = useSelector((state: RootStateOrAny) => state.prefs.theme);
 
@@ -33,9 +33,15 @@ function Weather() {
 
         {loading ? (
           <View style={styles.loading}>
-            <Text style={styles.loadingTxt}>Loading...</Text>
+            <Text
+              style={[
+                styles.loadingTxt,
+                {color: theme == 'dark' ? 'white' : '#222'},
+              ]}>
+              Loading...
+            </Text>
           </View>
-        ) : value ? (
+        ) : value && value.length ? (
           <View>
             <View
               style={{
@@ -69,10 +75,14 @@ function Weather() {
             />
           </View>
         ) : error ? (
-          <View>
-            <View style={styles.loading}>
-              <Text style={styles.errorTxt}>error</Text>
-            </View>
+          <View style={styles.loading}>
+            <Text
+              style={[
+                styles.errorTxt,
+                {color: theme == 'dark' ? 'white' : '#222'},
+              ]}>
+              Local NGROK server offine.
+            </Text>
           </View>
         ) : null}
       </ImageBackground>
@@ -99,4 +109,4 @@ const styles = StyleSheet.create({
   errorTxt: {fontSize: 22},
 });
 
-export default Weather;
+export default WeatherFeed;

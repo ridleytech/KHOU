@@ -13,7 +13,7 @@ Features:
 - Custom Tab bar
 - Redux state management
 - Light and dark mode
-- Python webscraper to pull 10-day weather from KHOU website
+- Python web scraper that pulls 10-day weather forecast from KHOU website
 
 <img src="KHOU/images/1-splash.png" width="300"/>
 <img src="KHOU/images/2-feed.png" width="300"/>

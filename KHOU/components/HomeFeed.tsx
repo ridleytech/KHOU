@@ -57,16 +57,14 @@ function HomeFeed() {
             snapToInterval={height}
           />
         ) : error ? (
-          <View>
-            <View style={styles.loading}>
-              <Text
-                style={[
-                  styles.errorTxt,
-                  {color: theme == 'dark' ? 'white' : '#222'},
-                ]}>
-                error
-              </Text>
-            </View>
+          <View style={styles.loading}>
+            <Text
+              style={[
+                styles.errorTxt,
+                {color: theme == 'dark' ? 'white' : '#222'},
+              ]}>
+              Please connect to the internet.
+            </Text>
           </View>
         ) : null}
       </ImageBackground>
