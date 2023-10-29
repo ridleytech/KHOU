@@ -8,7 +8,7 @@ Features:
 - In-app image caching
 - Article video playback on story page
 - Linking to website article
-- Google Admob ads integration into news feed and Story page
+- Google Admob ads integration into news feed and story page
 - Initial setup for GA4 analytics integration
 - Custom Tab bar
 - Redux state management
