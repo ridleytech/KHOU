@@ -3,6 +3,7 @@ import khouLogo from '../images/khou-logo.webp';
 import backIcon from '../images/back-icon.png';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector, RootStateOrAny} from 'react-redux';
+import prefsLight from '../images/prefs-light.png';
 
 function Header() {
   const currentPage = useSelector((state: RootStateOrAny) => state.currentPage);
@@ -10,8 +11,16 @@ function Header() {
   const navigation = useNavigation();
 
   const goBack = () => {
-    dispatch({type: 'SET_CURRENT_PAGE', payload: 'HomeFeed'});
-    navigation.navigate('HomeFeed');
+    const routes = navigation.getState()?.routes;
+    const prevRoute = routes[routes.length - 2];
+
+    dispatch({type: 'SET_CURRENT_PAGE', payload: prevRoute.name});
+    navigation.goBack();
+  };
+
+  const goToPrefs = () => {
+    dispatch({type: 'SET_CURRENT_PAGE', payload: 'Preferences'});
+    navigation.navigate('Preferences');
   };
 
   return (
@@ -19,7 +28,13 @@ function Header() {
       <Image source={khouLogo} style={styles.img} />
       {currentPage !== 'HomeFeed' ? (
         <TouchableOpacity style={styles.backBtn} onPress={() => goBack()}>
-          <Image source={backIcon} style={styles.backIcon} />
+          <Image source={backIcon} style={styles.icon} />
+        </TouchableOpacity>
+      ) : null}
+
+      {currentPage !== 'Preferences' ? (
+        <TouchableOpacity style={styles.prefsBtn} onPress={() => goToPrefs()}>
+          <Image source={prefsLight} style={styles.prefsIcon} />
         </TouchableOpacity>
       ) : null}
     </View>
@@ -34,7 +49,10 @@ const styles = StyleSheet.create({
     aspectRatio: 'auto',
   },
   backBtn: {position: 'absolute', left: 20, top: 65},
-  backIcon: {width: 35, height: 35},
+  prefsBtn: {position: 'absolute', right: 20, top: 65},
+
+  icon: {width: 35, height: 35},
+  prefsIcon: {width: 30, height: 30},
   container: {
     backgroundColor: '#1360aa',
     height: 120,

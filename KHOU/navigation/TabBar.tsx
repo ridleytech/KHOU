@@ -10,7 +10,7 @@ import nearMeIcon from '../images/near-me.png';
 import {useDispatch, useSelector} from 'react-redux';
 
 function MyTabBar({navigation}) {
-  const uiStyle = useSelector((state: RootStateOrAny) => state.prefs.uiStyle);
+  // const theme = useSelector((state: RootStateOrAny) => state.prefs.theme);
   const dispatch = useDispatch();
 
   const setPage = (page: any) => {
@@ -22,7 +22,8 @@ function MyTabBar({navigation}) {
     <View
       style={[
         styles.tabContent,
-        {backgroundColor: uiStyle == 1 ? '#333' : 'white'},
+        // {backgroundColor: theme == 'light' ? '#333' : 'white'},
+        {backgroundColor: '#333'},
       ]}>
       <TouchableWithoutFeedback onPress={() => setPage('HomeFeed')}>
         <View style={[styles.icon]}>

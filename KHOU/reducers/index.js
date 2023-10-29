@@ -1,15 +1,18 @@
 const inititalState = {
   currentPage: 'HomeFeed',
-  theme: 'light',
-  prefs: {uiStyle: 1},
+  prefs: {theme: 'light'},
 };
 
 export default (state = inititalState, action) => {
   switch (action.type) {
-    case 'changeTheme':
+    case 'CHANGE_UI':
+      console.log('action', action);
       return {
         ...state,
-        theme: action.payload.theme,
+        prefs: {
+          ...state.prefs,
+          theme: action.theme,
+        },
       };
     case 'SET_CURRENT_PAGE':
       console.log('SET_CURRENT_PAGE', action);

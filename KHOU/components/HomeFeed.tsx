@@ -9,8 +9,10 @@ import React, {
 
 import FeedItem from './FeedItem';
 import bgImg from '../images/stripe-bg.png';
+import bgImgDark from '../images/stripe-bg-dark.png';
 import Header from './Header';
 import useFetch from './useFetch';
+import {useSelector} from 'react-redux';
 
 const {height} = Dimensions.get('window');
 
@@ -20,10 +22,14 @@ const remote =
 
 function HomeFeed() {
   const {loading, error, value} = useFetch(remote, {}, []);
+  const theme = useSelector((state: RootStateOrAny) => state.prefs.theme);
 
   return (
     <>
-      <ImageBackground style={styles.feedBG} source={bgImg} resizeMode="cover">
+      <ImageBackground
+        style={styles.feedBG}
+        source={theme == 'light' ? bgImg : bgImgDark}
+        resizeMode="cover">
         <Header />
 
         {loading ? (

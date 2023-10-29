@@ -5,6 +5,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MyTabBar from './TabBar';
 import HomeFeed from '../components/HomeFeed';
 import StoryView from '../components/StoryView';
+import Preferences from '../components/Preferences';
 
 const AppTab = createBottomTabNavigator();
 const AppTabScreen = () => {
@@ -22,6 +23,7 @@ const RootStackScreen = () => (
   <RootStack.Navigator headerMode="none">
     <RootStack.Screen name="HomeFeed" component={HomeFeed} />
     <RootStack.Screen name="StoryView" component={StoryView} />
+    <RootStack.Screen name="Preferences" component={Preferences} />
   </RootStack.Navigator>
 );
 

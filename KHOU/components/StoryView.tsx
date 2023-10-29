@@ -9,21 +9,25 @@ import {
   Linking,
 } from 'react-native';
 import Header from './Header';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import Video from 'react-native-video';
-import BannerView from './BannerAd';
+import BannerView from './BannerView';
 
 const {height} = Dimensions.get('window');
 
 function StoryView(props: any) {
   const story = props.route.params.story;
   const dispatch = useDispatch();
+  const readTime = Math.ceil(
+    (story.title.length + story.subtitle.length + story.content.length) / 200,
+  );
+  const theme = useSelector((state: RootStateOrAny) => state.prefs.theme);
 
   useEffect(() => {
     setTimeout(() => {
       dispatch({type: 'SET_CURRENT_PAGE', payload: 'story'});
     }, 250);
-  });
+  }, []);
 
   const viewFullArticle = () => {
     let url = story.url;
@@ -41,7 +45,14 @@ function StoryView(props: any) {
     <>
       <Header />
       <ScrollView>
-        <View key={story.id} style={styles.container}>
+        <View
+          key={story.id}
+          style={[
+            styles.container,
+            {
+              backgroundColor: theme == 'light' ? 'white' : '#222',
+            },
+          ]}>
           <Video
             paused={true}
             controls={true}
@@ -50,10 +61,49 @@ function StoryView(props: any) {
           />
 
           <View style={styles.content}>
-            <Text style={styles.title}>{story.title}</Text>
-            <Text style={styles.subtitle}>{story.subtitle}</Text>
+            <Text
+              style={[
+                styles.title,
+                {
+                  color: theme == 'light' ? '#222' : 'white',
+                },
+              ]}>
+              {story.title}
+            </Text>
+            <View style={styles.readTime}>
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: theme == 'light' ? '#222' : 'white',
+                }}>
+                Estimated read time:{' '}
+              </Text>
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: 'bold',
+                  color: theme == 'light' ? '#222' : 'white',
+                }}>
+                {readTime} minutes
+              </Text>
+            </View>
+
+            <Text
+              style={[
+                styles.subtitle,
+                {color: theme == 'light' ? '#222' : 'white'},
+              ]}>
+              {story.subtitle}
+            </Text>
             <BannerView />
-            <Text style={styles.contentText}>{story.content}</Text>
+            <Text
+              style={[
+                styles.contentText,
+                ,
+                {color: theme == 'light' ? '#222' : 'white'},
+              ]}>
+              {story.content}
+            </Text>
           </View>
 
           <TouchableOpacity onPress={() => viewFullArticle()}>
@@ -91,7 +141,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontWeight: 'bold',
-    marginBottom: 30,
+    marginBottom: 20,
     marginTop: 20,
     lineHeight: 30,
   },
@@ -99,9 +149,10 @@ const styles = StyleSheet.create({
     lineHeight: 22,
     fontSize: 16,
     fontWeight: '500',
-    marginBottom: 20,
+    marginBottom: 30,
   },
-  contentText: {lineHeight: 22, fontSize: 16, marginTop: 20},
+  contentText: {lineHeight: 22, fontSize: 16, marginTop: 30},
+  readTime: {display: 'flex', flexDirection: 'row', marginBottom: 20},
 });
 
 export default StoryView;

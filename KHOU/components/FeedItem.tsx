@@ -2,12 +2,14 @@ import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import CacheImage from './CacheImage';
-import BannerView from './BannerAd';
+import BannerView from './BannerView';
+import {useSelector} from 'react-redux';
 // import {HOME_FEED_SCREEN} from './analytics/eventsConstants';
 // import {trackEvent} from './analytics/utils';
 
 function FeedItem({story, storyIndex}: any) {
   const navigation = useNavigation();
+  const theme = useSelector((state: RootStateOrAny) => state.prefs.theme);
 
   const viewStory = (selectedStory: any) => {
     // trackEvent(
@@ -25,10 +27,20 @@ function FeedItem({story, storyIndex}: any) {
 
         storyIndex === 0 || storyIndex % 3 !== 0 ? (
           <TouchableOpacity onPress={() => viewStory(story)}>
-            <View style={styles.content}>
-              <CacheImage uri={story.webimage} style={styles.feedImg} />
+            <View
+              style={[
+                styles.content,
+                {backgroundColor: theme == 'light' ? 'white' : '#222'},
+              ]}>
+              <CacheImage uri={story.image} style={styles.feedImg} />
               <View style={styles.padding}>
-                <Text style={styles.title}>{story.title}</Text>
+                <Text
+                  style={[
+                    styles.title,
+                    {color: theme == 'light' ? 'black' : 'white'},
+                  ]}>
+                  {story.title}
+                </Text>
               </View>
             </View>
           </TouchableOpacity>
@@ -46,7 +58,6 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   content: {
-    backgroundColor: 'white',
     display: 'flex',
     alignItems: 'center',
   },
