@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-
+import uuid
 
 def getWeather():
 
@@ -72,13 +72,15 @@ def getWeather():
     counter = 0
 
     for day in days:
-        ob = {"day": day, "date": dates[counter],
-              "condition": conditionIcons[counter],
-              "high": highs[counter],
-              "low": lows[counter],
-              "precipitations": precipitations[counter],
-              "windNumber": windNumbers[counter],
-              "windDirection": windDirections[counter]}
+        ob = {
+            "id":str(uuid.uuid4()),
+            "day": day, "date": dates[counter],
+            "condition": "https://www.khou.com/" + conditionIcons[counter],
+            "high": highs[counter],
+            "low": lows[counter],
+            "precipitations": precipitations[counter],
+            "windNumber": windNumbers[counter],
+            "windDirection": windDirections[counter]}
 
         weatherObs.append(ob)
         counter += 1

@@ -21,3 +21,4 @@ Features:
 <img src="KHOU/images/4-story.png" width="300"/>
 <img src="KHOU/images/5-prefs.png" width="300"/>
 <img src="KHOU/images/6-feed-dark.png" width="300"/>
+<img src="KHOU/images/7-weather-dark.png" width="300"/>

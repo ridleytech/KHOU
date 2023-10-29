@@ -31,21 +31,9 @@ function MyTabBar({navigation}) {
         </View>
       </TouchableWithoutFeedback>
 
-      <TouchableWithoutFeedback>
-        <View style={[styles.icon]}>
-          <FastImage source={nearMeIcon} style={styles.imgIcon} />
-        </View>
-      </TouchableWithoutFeedback>
-
-      <TouchableWithoutFeedback>
+      <TouchableWithoutFeedback onPress={() => setPage('WeatherScreen')}>
         <View style={[styles.icon]}>
           <FastImage source={weatherIcon} style={styles.imgIcon} />
-        </View>
-      </TouchableWithoutFeedback>
-
-      <TouchableWithoutFeedback>
-        <View style={[styles.icon]}>
-          <FastImage source={watchIcon} style={styles.imgIcon} />
         </View>
       </TouchableWithoutFeedback>
     </View>

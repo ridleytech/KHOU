@@ -12,7 +12,10 @@ function Header() {
 
   const goBack = () => {
     const routes = navigation.getState()?.routes;
+
     const prevRoute = routes[routes.length - 2];
+
+    console.log('this route: ', routes[routes.length - 2]);
 
     dispatch({type: 'SET_CURRENT_PAGE', payload: prevRoute.name});
     navigation.goBack();
@@ -26,13 +29,13 @@ function Header() {
   return (
     <View style={styles.container}>
       <Image source={khouLogo} style={styles.img} />
-      {currentPage !== 'HomeFeed' ? (
+      {currentPage !== 'HomeFeed' && currentPage !== 'WeatherScreen' ? (
         <TouchableOpacity style={styles.backBtn} onPress={() => goBack()}>
           <Image source={backIcon} style={styles.icon} />
         </TouchableOpacity>
       ) : null}
 
-      {currentPage !== 'Preferences' ? (
+      {currentPage !== 'Preferences' && currentPage !== 'WeatherScreen' ? (
         <TouchableOpacity style={styles.prefsBtn} onPress={() => goToPrefs()}>
           <Image source={prefsLight} style={styles.prefsIcon} />
         </TouchableOpacity>

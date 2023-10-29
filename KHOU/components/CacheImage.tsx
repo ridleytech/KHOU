@@ -44,12 +44,12 @@ export default CacheImage = props => {
       });
   };
 
+  const styles = StyleSheet.create({
+    feedImg: {
+      width: props.width,
+      height: props.height,
+    },
+  });
+
   return <Image style={styles.feedImg} source={source} resizeMode="cover" />;
 };
-
-const styles = StyleSheet.create({
-  feedImg: {
-    width: '100%',
-    height: 150,
-  },
-});

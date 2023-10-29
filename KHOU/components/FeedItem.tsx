@@ -32,7 +32,12 @@ function FeedItem({story, storyIndex}: any) {
                 styles.content,
                 {backgroundColor: theme == 'light' ? 'white' : '#222'},
               ]}>
-              <CacheImage uri={story.image} style={styles.feedImg} />
+              <CacheImage
+                uri={story.image}
+                style={styles.feedImg}
+                width={'100%'}
+                height={150}
+              />
               <View style={styles.padding}>
                 <Text
                   style={[

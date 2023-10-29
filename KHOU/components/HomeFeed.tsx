@@ -34,7 +34,13 @@ function HomeFeed() {
 
         {loading ? (
           <View style={styles.loading}>
-            <Text style={styles.loadingTxt}>Loading...</Text>
+            <Text
+              style={[
+                styles.loadingTxt,
+                {color: theme == 'dark' ? 'white' : '#222'},
+              ]}>
+              Loading...
+            </Text>
           </View>
         ) : value ? (
           <FlatList
@@ -53,7 +59,13 @@ function HomeFeed() {
         ) : error ? (
           <View>
             <View style={styles.loading}>
-              <Text style={styles.errorTxt}>error</Text>
+              <Text
+                style={[
+                  styles.errorTxt,
+                  {color: theme == 'dark' ? 'white' : '#222'},
+                ]}>
+                error
+              </Text>
             </View>
           </View>
         ) : null}
