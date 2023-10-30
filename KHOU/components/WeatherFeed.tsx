@@ -12,15 +12,15 @@ import bgImgDark from '../images/stripe-bg-dark.png';
 import Header from './Header';
 import useFetch from './useFetch';
 import {useSelector} from 'react-redux';
-
 import WeatherItem from './WeatherItem';
 
 const {height} = Dimensions.get('window');
-
-const local = 'http://localhost:9999';
+// const local = 'http://localhost:9999';
+const remote =
+  'https://f728-2601-2c1-c101-c90-c0b6-9dbc-54e1-b692.ngrok-free.app';
 
 function WeatherFeed() {
-  const {loading, error, value} = useFetch(local, {}, []);
+  const {loading, error, value} = useFetch(remote, {}, []);
   const theme = useSelector((state: RootStateOrAny) => state.prefs.theme);
 
   return (
@@ -44,18 +44,19 @@ function WeatherFeed() {
         ) : value && value.length ? (
           <View>
             <View
-              style={{
-                padding: 15,
-                backgroundColor: theme == 'dark' ? '#222' : 'white',
-                marginLeft: 15,
-                marginRight: 15,
-              }}>
+              style={[
+                styles.headerView,
+                {
+                  backgroundColor: theme == 'dark' ? '#222' : 'white',
+                },
+              ]}>
               <Text
-                style={{
-                  fontSize: 22,
-                  fontWeight: 'bold',
-                  color: theme == 'dark' ? 'white' : '#222',
-                }}>
+                style={[
+                  styles.headerTxt,
+                  {
+                    color: theme == 'dark' ? 'white' : '#222',
+                  },
+                ]}>
                 10-Day Forecast
               </Text>
             </View>
@@ -81,7 +82,7 @@ function WeatherFeed() {
                 styles.errorTxt,
                 {color: theme == 'dark' ? 'white' : '#222'},
               ]}>
-              Local NGROK server offine.
+              NGROK server offine.
             </Text>
           </View>
         ) : null}
@@ -95,6 +96,15 @@ const styles = StyleSheet.create({
   feed: {
     padding: 0,
     margin: 0,
+  },
+  headerView: {
+    padding: 15,
+    marginLeft: 15,
+    marginRight: 15,
+  },
+  headerTxt: {
+    fontSize: 22,
+    fontWeight: 'bold',
   },
   loading: {
     position: 'absolute',

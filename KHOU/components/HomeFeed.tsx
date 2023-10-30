@@ -15,7 +15,6 @@ import useFetch from './useFetch';
 import {useSelector} from 'react-redux';
 
 const {height} = Dimensions.get('window');
-
 // const local = 'http://localhost:3000/articles/getNewsFeed';
 const remote =
   'https://tppdgn71n8.execute-api.us-west-2.amazonaws.com/getNewsFeed';

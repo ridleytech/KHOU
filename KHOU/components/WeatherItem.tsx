@@ -8,8 +8,6 @@ import {useSelector} from 'react-redux';
 function WeatherItem({weatherItem}: any) {
   const theme = useSelector((state: RootStateOrAny) => state.prefs.theme);
 
-  console.log('weatherItem', weatherItem);
-
   return (
     <View key={weatherItem.id} style={styles.container}>
       {
@@ -20,19 +18,11 @@ function WeatherItem({weatherItem}: any) {
               backgroundColor: theme == 'light' ? 'white' : '#222',
             },
           ]}>
-          <View
-            style={{
-              display: 'flex',
-              marginRight: 15,
-              backgroundColor: 'orange',
-              padding: 10,
-              paddingLeft: 8,
-              width: 70,
-            }}>
+          <View style={styles.dayContainer}>
             <Text style={{fontSize: 18, fontWeight: 'bold', color: 'white'}}>
               {weatherItem.day}
             </Text>
-            <Text style={{fontSize: 18, fontWeight: 500, color: 'white'}}>
+            <Text style={{fontSize: 18, fontWeight: '500', color: 'white'}}>
               {weatherItem.date}
             </Text>
           </View>
@@ -45,24 +35,16 @@ function WeatherItem({weatherItem}: any) {
             resize={'contain'}
           />
           <Text
-            style={{
-              marginLeft: 10,
-              marginRight: 20,
-              fontSize: 22,
-              fontWeight: 'bold',
-              color: theme == 'dark' ? 'white' : '#222',
-            }}>
+            style={[
+              styles.highLow,
+              {
+                color: theme == 'dark' ? 'white' : '#222',
+              },
+            ]}>
             {weatherItem.high}/{weatherItem.low}
           </Text>
 
-          <View
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              // backgroundColor: 'blue',
-              width: 80,
-            }}>
+          <View style={styles.rainContainer}>
             <CacheImage
               uri={'https://www.khou.com/images/weather-10-day/rain.png'}
               style={styles.feedImg}
@@ -71,13 +53,12 @@ function WeatherItem({weatherItem}: any) {
               resize={'contain'}
             />
             <Text
-              style={{
-                marginLeft: 5,
-                marginRight: 20,
-                fontSize: 16,
-                fontWeight: 'bold',
-                color: theme == 'dark' ? 'white' : '#222',
-              }}>
+              style={[
+                styles.precipitations,
+                {
+                  color: theme == 'dark' ? 'white' : '#222',
+                },
+              ]}>
               {weatherItem.precipitations}
             </Text>
           </View>
@@ -85,9 +66,6 @@ function WeatherItem({weatherItem}: any) {
             style={{
               display: 'flex',
               flexDirection: 'row',
-              // alignItems: 'center',
-              // justifyContent: 'center',
-              // backgroundColor: 'red',
               width: 90,
             }}>
             <CacheImage
@@ -99,21 +77,17 @@ function WeatherItem({weatherItem}: any) {
             />
             <Text
               style={{
-                marginLeft: 5,
-                fontSize: 16,
-                fontWeight: 'bold',
                 color: theme == 'dark' ? 'white' : '#222',
               }}>
               {weatherItem.windNumber}
             </Text>
             <Text
-              style={{
-                marginLeft: 5,
-                fontSize: 16,
-                fontWeight: 'bold',
-                color: theme == 'dark' ? 'white' : '#222',
-                textAlign: 'right',
-              }}>
+              style={[
+                styles.windDirection,
+                {
+                  color: theme == 'dark' ? 'white' : '#222',
+                },
+              ]}>
               {weatherItem.windDirection}
             </Text>
           </View>
@@ -146,6 +120,43 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 30,
     lineHeight: 30,
+  },
+  windDirection: {
+    marginLeft: 5,
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'right',
+  },
+  windNumber: {
+    marginLeft: 5,
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  precipitations: {
+    marginLeft: 5,
+    marginRight: 20,
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  highLow: {
+    marginLeft: 10,
+    marginRight: 20,
+    fontSize: 22,
+    fontWeight: 'bold',
+  },
+  dayContainer: {
+    display: 'flex',
+    marginRight: 15,
+    backgroundColor: 'orange',
+    padding: 10,
+    paddingLeft: 8,
+    width: 70,
+  },
+  rainContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: 80,
   },
 });
 

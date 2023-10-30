@@ -4,13 +4,9 @@ import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import homeIcon from '../images/home.png';
 import weatherIcon from '../images/weather.png';
-import watchIcon from '../images/watch.png';
-import nearMeIcon from '../images/near-me.png';
-
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 
 function MyTabBar({navigation}) {
-  // const theme = useSelector((state: RootStateOrAny) => state.prefs.theme);
   const dispatch = useDispatch();
 
   const setPage = (page: any) => {
@@ -19,12 +15,7 @@ function MyTabBar({navigation}) {
   };
 
   return (
-    <View
-      style={[
-        styles.tabContent,
-        // {backgroundColor: theme == 'light' ? '#333' : 'white'},
-        {backgroundColor: '#333'},
-      ]}>
+    <View style={styles.tabContent}>
       <TouchableWithoutFeedback onPress={() => setPage('HomeFeed')}>
         <View style={[styles.icon]}>
           <FastImage source={homeIcon} style={styles.imgIcon} />
@@ -49,6 +40,7 @@ const styles = StyleSheet.create({
     height: 90,
     padding: 0,
     paddingBottom: 10,
+    backgroundColor: '#333',
   },
   imgIcon: {
     height: 55,
@@ -57,7 +49,6 @@ const styles = StyleSheet.create({
   icon: {
     height: 44,
     width: 44,
-    // borderRadius: 22,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
