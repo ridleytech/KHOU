@@ -4,7 +4,7 @@ const serverURLS = {
     'https://tppdgn71n8.execute-api.us-west-2.amazonaws.com/getNewsFeed',
   WEATHER_LOCAL: 'http://localhost:9999',
   WEATHER_NGROK:
-    'https://a285-2601-2c1-c101-c90-3dea-aedd-aa1d-96a5.ngrok-free.app',
+    'https://3bde-2601-2c1-c101-c90-ecc0-5d94-8140-89cb.ngrok-free.app',
 };
 
 export default serverURLS;
