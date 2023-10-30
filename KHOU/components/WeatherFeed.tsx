@@ -13,14 +13,12 @@ import Header from './Header';
 import useFetch from './useFetch';
 import {useSelector} from 'react-redux';
 import WeatherItem from './WeatherItem';
+import serverURLS from '../utils/Constants';
 
 const {height} = Dimensions.get('window');
-// const local = 'http://localhost:9999';
-const remote =
-  'https://6c70-2601-2c1-c101-c90-c0b6-9dbc-54e1-b692.ngrok-free.app';
 
 function WeatherFeed() {
-  const {loading, error, value} = useFetch(remote, {}, []);
+  const {loading, error, value} = useFetch(serverURLS.WEATHER_NGROK, {}, []);
   const theme = useSelector((state: RootStateOrAny) => state.prefs.theme);
 
   return (

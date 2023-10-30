@@ -13,14 +13,12 @@ import bgImgDark from '../images/stripe-bg-dark.png';
 import Header from './Header';
 import useFetch from './useFetch';
 import {useSelector} from 'react-redux';
+import serverURLS from '../utils/Constants';
 
 const {height} = Dimensions.get('window');
-// const local = 'http://localhost:3000/articles/getNewsFeed';
-const remote =
-  'https://tppdgn71n8.execute-api.us-west-2.amazonaws.com/getNewsFeed';
 
 function HomeFeed() {
-  const {loading, error, value} = useFetch(remote, {}, []);
+  const {loading, error, value} = useFetch(serverURLS.FEED_REMOTE, {}, []);
   const theme = useSelector((state: RootStateOrAny) => state.prefs.theme);
 
   return (
