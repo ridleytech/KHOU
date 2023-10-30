@@ -19,7 +19,9 @@ while True:
 
     if "GET /" in request:
         http_response = "HTTP/1.1 200 OK\r\n"
+        http_response += "ngrok-skip-browser-warning: 1\r\n"
         http_response += "Content-Type: application/json\r\n\r\n"
+        http_response += "\r\n"
         http_response += data
 
         client_connection.sendall(http_response.encode("utf-8"))

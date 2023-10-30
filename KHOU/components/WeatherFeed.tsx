@@ -17,7 +17,7 @@ import WeatherItem from './WeatherItem';
 const {height} = Dimensions.get('window');
 // const local = 'http://localhost:9999';
 const remote =
-  'https://f728-2601-2c1-c101-c90-c0b6-9dbc-54e1-b692.ngrok-free.app';
+  'https://6c70-2601-2c1-c101-c90-c0b6-9dbc-54e1-b692.ngrok-free.app';
 
 function WeatherFeed() {
   const {loading, error, value} = useFetch(remote, {}, []);
