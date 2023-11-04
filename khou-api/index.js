@@ -38,7 +38,7 @@ const getNewsFeed = async (req, res) => {
   });
 
   res.send({
-    stories: scanResults,
+    newsItems: scanResults,
   });
 };
 

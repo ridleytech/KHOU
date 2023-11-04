@@ -4,7 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MyTabBar from './TabBar';
 import HomeFeed from '../components/HomeFeed';
-import StoryView from '../components/StoryView';
+import ArticleView from '../components/ArticleView';
 import Preferences from '../components/Preferences';
 import WeatherFeed from '../components/WeatherFeed';
 
@@ -24,7 +24,7 @@ const RootStack = createStackNavigator();
 const RootStackScreen = () => (
   <RootStack.Navigator headerMode="none">
     <RootStack.Screen name="HomeFeed" component={HomeFeed} />
-    <RootStack.Screen name="StoryView" component={StoryView} />
+    <RootStack.Screen name="ArticleView" component={ArticleView} />
     <RootStack.Screen name="Preferences" component={Preferences} />
   </RootStack.Navigator>
 );

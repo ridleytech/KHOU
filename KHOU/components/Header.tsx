@@ -12,10 +12,7 @@ function Header() {
 
   const goBack = () => {
     const routes = navigation.getState()?.routes;
-
     const prevRoute = routes[routes.length - 2];
-
-    console.log('this route: ', routes[routes.length - 2]);
 
     dispatch({type: 'SET_CURRENT_PAGE', payload: prevRoute.name});
     navigation.goBack();
@@ -53,7 +50,6 @@ const styles = StyleSheet.create({
   },
   backBtn: {position: 'absolute', left: 20, top: 65},
   prefsBtn: {position: 'absolute', right: 20, top: 65},
-
   icon: {width: 35, height: 35},
   prefsIcon: {width: 30, height: 30},
   container: {
